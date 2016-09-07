@@ -23,9 +23,10 @@ In order to recreate the work you will need to install the following programs:
 
 This data can be used for either the 18S or 16S rRNA gene sequences. For this documentation it is written out for the 16S rRNA gene data. Any changes that would be different for 18S rRNA gene data will be denoted in the text.
 ### Download the data
-------
+
 1. Download the MSR data from [NCBI SRA](http://www.ncbi.nlm.nih.gov/sra)
 ### Run Mothur
+
 2. Create a .files file for *Mothur* analysis
 *  Example:
 
@@ -43,6 +44,7 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
 
     1) *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.shared 2) *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.0.03.cons.taxonomy
 ### Prepare data for analyses
+
 6. Transpose the *.shared* file:
 ```
 awk '
@@ -93,6 +95,7 @@ END {
 
     **Provided**: *MSR_NUTfinal_16S.csv*
 
+### Phyloseq Analyses
 
 13. Moving back to R studio, we use the package [Phyloseq](https://joey711.github.io/phyloseq/) with the code *MSR_phyloseq_16S.R* to analyze the data
 * Within the code are the dependencies and other programs needed to run *Phyloseq* and plot the data.
