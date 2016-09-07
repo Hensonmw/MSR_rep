@@ -36,7 +36,7 @@ In order to recreate the work you will need to install the following programs:
 5. Move the following files to your computer
 *  1) *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.shared 2) *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.0.03.cons.taxonomy
 6. Transpose the *.shared* file:
-'''
+```
 awk '
 {
     for (i=1; i<=NF; i++)  {
@@ -53,5 +53,7 @@ END {
         print str
     }
 }' *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.shared > output.txt
-'''
-*  you can also do this within R studio with the command 't(otu_table)'
+```
+*  You can also do this within R studio with the command `t(otu_table)`
+*  Be careful to double check this. You will not be able to open this file in excel because of its size!!!
+ 
