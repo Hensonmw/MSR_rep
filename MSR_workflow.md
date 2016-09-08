@@ -69,9 +69,9 @@ END {
 * Remove OTU # from the columns
 
     **Provided**: *MSR_allOTUs_16S.csv*
-7. Create a table with your sample data (*e.g. nutrient measurements, site details, filter details*)
+7. Create a table with your sample data (*e.g. nutrient measurements, site details, filter details*) that has been [Hellinger transformed](http://cc.oulu.fi/~jarioksa/softhelp/vegan/html/decostand.html).
 
-    **Provided**: *MSR_nut.csv*
+    **Provided**: *MSR_allNUT.csv*
 8. Create a taxonomy file from the *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.0.03.cons.taxonomy file
     *  Remove the OTU # column and separate the taxonomy into separate columns.
     *  File should just be Kingdom - Genus if Silva Database was used.
@@ -80,26 +80,28 @@ END {
 
 ### First look and removing outlier OTUs and sites
 
-8. Moving to R studio, look at all the data (*e.g. sites, controls*) using NMDS and heiracrical clustering.
+8. Moving to R studio, look at all the data (*e.g. sites, controls*) using NMDS and hierarchical clustering.
 
     **Provided**: *Alldata_16S.R*
 9. Based on the hclust tree  and NMDS plot remove any outlier sites that group with the negative and cooler controls in both the tree and NMDS plot.
 10. Remove any OTUs  found within the Negative and Cooler controls that appear >= 10 at any given site.
-
-    **Provided**: *MSR_OTUfinal_16S.csv*
 11. Update taxonomy file to remove any OTUs that were removed in the above analysis
     *  *IMPORTANT*: The taxonomy file must match the OTU file
+12. Update sample sheet to remove any samples that were outliers
 
-    **Provided**: *MSR_Taxafinal_16S.csv*
-12. Update sample sheet
 
-    **Provided**: *MSR_NUTfinal_16S.csv*
-
-### Phyloseq Analyses
+### Phyloseq
 
 13. Moving back to R studio, we use the package [Phyloseq](https://joey711.github.io/phyloseq/) with the code *MSR_phyloseq_16S.R* to analyze the data
 * Within the code are the dependencies and other programs needed to run *Phyloseq* and plot the data.
-* You will need to upload your Tax, Nut, and OTU tables into R studio. Note: NUT table is **required** by phyloseq.
+* You will need to upload your Tax, Nut, and OTU tables into R studio. *Note*: NUT table is **required** by phyloseq even if you do not have nutrient data.
 
     **Provided**: *MSR_phyloseq_16S.R*
-14.
+14. Within Phyloseq, once the data has been normalized with [DESeq2](http://bioconductor.org/packages/release/bioc/html/DESeq2.html) and separated by size fraction, you will need to write out a table of your taxonomy, OTU, and NUT for the sterivex and prefilter.
+
+### WGCNA
+
+15. Modify the Taxonomy table so that each classification is separated by a colon
+
+    **Example**: Bacteria(100);Proteobacteria(100);Betaproteobacteria(100);Methylophilales(100);Methylophilaceae(100);unclassified(80)
+16. 
