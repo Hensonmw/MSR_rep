@@ -28,19 +28,19 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
 ### Run Mothur
 
 2. Create a .files file for *Mothur* analysis
-*  Example:
+    *  Example:
 
-    A1	A1_CTACAGGGTCTC_L001_R1_001.fastq	A1_CTACAGGGTCTC_L001_R2_001.fastq
-    A1Prime	A1Prime_CTTGGAGGCTTA_L001_R1_001.fastq	A1Prime_CTTGGAGGCTTA_L001_R2_001.fastq
-    B1	B1_ACCGAACAATCC_L001_R1_001.fastq	B1_ACCGAACAATCC_L001_R2_001.fastq
-    B1Prime	B1Prime_ACGGTACCCTAC_L001_R1_001.fastq	B1Prime_ACGGTACCCTAC_L001_R2_001.fastq
+        A1	A1_CTACAGGGTCTC_L001_R1_001.fastq	A1_CTACAGGGTCTC_L001_R2_001.fastq
+        A1Prime	A1Prime_CTTGGAGGCTTA_L001_R1_001.fastq	A1Prime_CTTGGAGGCTTA_L001_R2_001.fastq
+        B1	B1_ACCGAACAATCC_L001_R1_001.fastq	B1_ACCGAACAATCC_L001_R2_001.fastq
+        B1Prime	B1Prime_ACGGTACCCTAC_L001_R1_001.fastq	B1Prime_ACGGTACCCTAC_L001_R2_001.fastq
 3. Create a mothur batch file
 
     **Provided**: *msriver_16S.batch*
 4. Run *Mothur* using the batch file and the .files file you created
 
-*  `mothur msriver.batch`
-*  Analysis of each MSR dataset (16S and 18S) will take 3-5 days to run on 250 GB RAM with 16 processors
+    *  `mothur msriver.batch`
+    *  Analysis of each MSR dataset (16S and 18S) will take 3-5 days to run on 250 GB RAM with 16 processors
 5. Move the following files to your personal computer or where you are working
 
     1) *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.shared 2) *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.0.03.cons.taxonomy
