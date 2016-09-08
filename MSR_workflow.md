@@ -23,7 +23,8 @@ In order to recreate the work you will need to install the following programs:
 ----------
 
 This data can be used for either the 18S or 16S rRNA gene sequences. For this documentation it is written out for the 16S rRNA gene data. Any changes that would be different for 18S rRNA gene data will be denoted in the text.
-    *  Within the R scripts there are notes where you will need to edit things in excel. 
+
+    *  Within the R scripts there are notes where you will need to edit things in excel or other appropriate method.
 ### Download the data
 1. Download the MSR data from [NCBI SRA](http://www.ncbi.nlm.nih.gov/sra)
 ### Run Mothur
@@ -89,12 +90,12 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
     *  *IMPORTANT*: The taxonomy file must match the OTU file
 12. Update sample sheet to remove any samples that were outliers
 ### Phyloseq
-13. Moving back to R studio, we use the package [Phyloseq](https://joey711.github.io/phyloseq/) with the code *MSR_phyloseq_16S.R* to analyze the data
+13. Moving back to R studio, we use the package [Phyloseq](https://joey711.github.io/phyloseq/) with the code *MSR_phyloseq.R* to analyze the data
 
     *  Within the code are the dependencies and other programs needed to run *Phyloseq* and plot the data.
     *  You will need to upload your Tax, Nut, and OTU tables into R studio. *Note*: NUT table is **required** by phyloseq even if you do not have nutrient data.
 
-    **Provided**: *MSR_phyloseq_16S.R*
+    **Provided**: *MSR_phyloseqs.R*
 14. Within Phyloseq, once the data has been normalized with [DESeq2](http://bioconductor.org/packages/release/bioc/html/DESeq2.html) and separated by size fraction, you will need to write out a table of your taxonomy, OTU, and NUT for the sterivex and prefilter.
 ### WGCNA
 15. Modify the Taxonomy table so that each classification is separated by a colon
@@ -103,6 +104,7 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
 16. Upload the Taxonomy, Nutrient, and OTU tables into *Rstudio* to be processed with the WGCNA and VIP script
 
     *  Within the scripts there are dependencies listed that you will need to download visit the [WGNCA website](https://labs.genetics.ucla.edu/horvath/CoexpressionNetwork/Rpackages/WGCNA/) for more information.
+    **Provided**: *WGCNA.R, VIP.R*
 17. Create a table with the WGCNA and VIP output
 
     *  To do this, first, use the OTUinfo table created. Find the submodule of choice and copy and paste the OTUs, their classification, P value, and R value for the metadata of choice (e.g. NO3).
