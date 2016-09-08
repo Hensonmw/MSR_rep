@@ -28,8 +28,8 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
 ### Run Mothur
 
 2. Create a .files file for *Mothur* analysis
-    *  Example:
 
+    *  Example:
         A1	A1_CTACAGGGTCTC_L001_R1_001.fastq	A1_CTACAGGGTCTC_L001_R2_001.fastq
         A1Prime	A1Prime_CTTGGAGGCTTA_L001_R1_001.fastq	A1Prime_CTTGGAGGCTTA_L001_R2_001.fastq
         B1	B1_ACCGAACAATCC_L001_R1_001.fastq	B1_ACCGAACAATCC_L001_R2_001.fastq
