@@ -23,10 +23,8 @@ In order to recreate the work you will need to install the following programs:
 
 This data can be used for either the 18S or 16S rRNA gene sequences. For this documentation it is written out for the 16S rRNA gene data. Any changes that would be different for 18S rRNA gene data will be denoted in the text.
 ### Download the data
-
 1. Download the MSR data from [NCBI SRA](http://www.ncbi.nlm.nih.gov/sra)
 ### Run Mothur
-
 2. Create a .files file for *Mothur* analysis
 
     *  Example:
@@ -45,7 +43,6 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
 
     1) *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.shared 2) *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.0.03.cons.taxonomy
 ### Prepare data for analyses
-
 6. Transpose the *.shared* file:
 
     ```
@@ -66,13 +63,11 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
         }
     }' *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.shared > output.txt
     ```
-
     *  You can also do this within R studio with the command `t(otu_table)`
     *  **Be careful** to double check this. You will not be able to open this file in excel because of its size!!!
     *  Remove OTU # from the columns
 
     **Provided**: *MSR_allOTUs_16S.csv*
-
 7. Create a table with your sample data (*e.g. nutrient measurements, site details, filter details*) that has been [Hellinger transformed](http://cc.oulu.fi/~jarioksa/softhelp/vegan/html/decostand.html).
 
     **Provided**: *MSR_allNUT.csv*
@@ -81,9 +76,7 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
     *  File should just be Kingdom - Genus if Silva Database was used.
 
     **Provided**: *MSR_allTaxa_16S.csv*
-
 ### First look and removing outlier OTUs and sites
-
 8. Moving to R studio, look at all the data (*e.g. sites, controls*) using NMDS and hierarchical clustering.
 
     **Provided**: *Alldata_16S.R*
@@ -93,10 +86,7 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
 
     *  *IMPORTANT*: The taxonomy file must match the OTU file
 12. Update sample sheet to remove any samples that were outliers
-
-
 ### Phyloseq
-
 13. Moving back to R studio, we use the package [Phyloseq](https://joey711.github.io/phyloseq/) with the code *MSR_phyloseq_16S.R* to analyze the data
 
     *  Within the code are the dependencies and other programs needed to run *Phyloseq* and plot the data.
@@ -104,16 +94,13 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
 
     **Provided**: *MSR_phyloseq_16S.R*
 14. Within Phyloseq, once the data has been normalized with [DESeq2](http://bioconductor.org/packages/release/bioc/html/DESeq2.html) and separated by size fraction, you will need to write out a table of your taxonomy, OTU, and NUT for the sterivex and prefilter.
-
 ### WGCNA
-
 15. Modify the Taxonomy table so that each classification is separated by a colon
 
     **Example**: Bacteria(100);Proteobacteria(100);Betaproteobacteria(100);Methylophilales(100);Methylophilaceae(100);unclassified(80)
 16. Upload the Taxonomy, Nutrient, and OTU tables into *Rstudio* to be processed with the WGCNA and VIP script
 
     *  Within the scripts there are dependencies listed that you will need to download visit the [WGNCA website](https://labs.genetics.ucla.edu/horvath/CoexpressionNetwork/Rpackages/WGCNA/) for more information.
-
 17. Create a table with the WGCNA and VIP output
 
     *  To do this, first, use the OTUinfo table created. Find the submodule of choice and copy and paste the OTUs, their classification, P value, and R value for the metadata of choice (e.g. NO3).
