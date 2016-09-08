@@ -38,7 +38,8 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
 
     **Provided**: *msriver_16S.batch*
 4. Run *Mothur* using the batch file and the .files file you created
-*  'mothur msriver.batch'
+
+*  `mothur msriver.batch`
 *  Analysis of each MSR dataset (16S and 18S) will take 3-5 days to run on 250 GB RAM with 16 processors
 5. Move the following files to your personal computer or where you are working
 
@@ -64,11 +65,12 @@ END {
     }
 }' *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.shared > output.txt
 ```
-*  You can also do this within R studio with the command `t(otu_table)`
-*  **Be careful** to double check this. You will not be able to open this file in excel because of its size!!!
-* Remove OTU # from the columns
+    *  You can also do this within R studio with the command `t(otu_table)`
+    *  **Be careful** to double check this. You will not be able to open this file in excel because of its size!!!
+    *  Remove OTU # from the columns
 
     **Provided**: *MSR_allOTUs_16S.csv*
+
 7. Create a table with your sample data (*e.g. nutrient measurements, site details, filter details*) that has been [Hellinger transformed](http://cc.oulu.fi/~jarioksa/softhelp/vegan/html/decostand.html).
 
     **Provided**: *MSR_allNUT.csv*
@@ -93,8 +95,8 @@ END {
 ### Phyloseq
 
 13. Moving back to R studio, we use the package [Phyloseq](https://joey711.github.io/phyloseq/) with the code *MSR_phyloseq_16S.R* to analyze the data
-* Within the code are the dependencies and other programs needed to run *Phyloseq* and plot the data.
-* You will need to upload your Tax, Nut, and OTU tables into R studio. *Note*: NUT table is **required** by phyloseq even if you do not have nutrient data.
+    *  Within the code are the dependencies and other programs needed to run *Phyloseq* and plot the data.
+    *  You will need to upload your Tax, Nut, and OTU tables into R studio. *Note*: NUT table is **required** by phyloseq even if you do not have nutrient data.
 
     **Provided**: *MSR_phyloseq_16S.R*
 14. Within Phyloseq, once the data has been normalized with [DESeq2](http://bioconductor.org/packages/release/bioc/html/DESeq2.html) and separated by size fraction, you will need to write out a table of your taxonomy, OTU, and NUT for the sterivex and prefilter.
@@ -104,4 +106,12 @@ END {
 15. Modify the Taxonomy table so that each classification is separated by a colon
 
     **Example**: Bacteria(100);Proteobacteria(100);Betaproteobacteria(100);Methylophilales(100);Methylophilaceae(100);unclassified(80)
-16. 
+16. Upload the Taxonomy, Nutrient, and OTU tables into *Rstudio* to be processed with the WGCNA and VIP script
+
+    *  Within the scripts there are dependencies listed that you will need to download visit the [WGNCA website](https://labs.genetics.ucla.edu/horvath/CoexpressionNetwork/Rpackages/WGCNA/) for more information.
+
+17. Create a table with the WGCNA and VIP output
+
+    *  To do this, first, use the OTUinfo table created. Find the submodule of choice and copy and paste the OTUs, their classification, P value, and R value for the metadata of choice (e.g. NO3).
+    *  Next, in the VIP values file for the metadata of choice (e.g. NO3) copy and paste the VIP value with its corresponding OTU in your new excel table. **NOTE**: the VIP score and OTU table from the previous step will not be in the same order you *will* need to reorder them so that they match.
+    *  Using the Nodeconnections file for the metadata of choice (e.g NO3), copy and paste the number of connections into the new excel file. *Again*, you will need to make sure that the OTUs match.
