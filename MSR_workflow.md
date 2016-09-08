@@ -47,24 +47,26 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
 ### Prepare data for analyses
 
 6. Transpose the *.shared* file:
-```
-awk '
-{
-    for (i=1; i<=NF; i++)  {
-        a[NR,i] = $i
-    }
-}
-NF>p { p = NF }
-END {   
-    for(j=1; j<=p; j++) {
-        str=a[1,j]
-        for(i=2; i<=NR; i++){
-            str=str" "a[i,j];
+
+    ```
+    awk '
+    {
+        for (i=1; i<=NF; i++)  {
+            a[NR,i] = $i
         }
-        print str
     }
-}' *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.shared > output.txt
-```
+    NF>p { p = NF }
+    END {   
+        for(j=1; j<=p; j++) {
+            str=a[1,j]
+            for(i=2; i<=NR; i++){
+                str=str" "a[i,j];
+            }
+            print str
+        }
+    }' *.files file name*.trim.contigs.good.unique.pick.good.filter.unique.precluster.pick.pick.an.unique_list.shared > output.txt
+    ```
+
     *  You can also do this within R studio with the command `t(otu_table)`
     *  **Be careful** to double check this. You will not be able to open this file in excel because of its size!!!
     *  Remove OTU # from the columns
@@ -88,6 +90,7 @@ END {
 9. Based on the hclust tree  and NMDS plot remove any outlier sites that group with the negative and cooler controls in both the tree and NMDS plot.
 10. Remove any OTUs  found within the Negative and Cooler controls that appear >= 10 at any given site.
 11. Update taxonomy file to remove any OTUs that were removed in the above analysis
+
     *  *IMPORTANT*: The taxonomy file must match the OTU file
 12. Update sample sheet to remove any samples that were outliers
 
@@ -95,6 +98,7 @@ END {
 ### Phyloseq
 
 13. Moving back to R studio, we use the package [Phyloseq](https://joey711.github.io/phyloseq/) with the code *MSR_phyloseq_16S.R* to analyze the data
+
     *  Within the code are the dependencies and other programs needed to run *Phyloseq* and plot the data.
     *  You will need to upload your Tax, Nut, and OTU tables into R studio. *Note*: NUT table is **required** by phyloseq even if you do not have nutrient data.
 
