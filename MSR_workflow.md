@@ -18,6 +18,7 @@ In order to recreate the work you will need to install the following programs:
     *  see Pat Schloss' SOP for MiSeq data (http://www.mothur.org/wiki/MiSeq_SOP)
 * [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 * Access to HPC or high RAM computer
+* [VIP](http://mevik.net/work/software/pls.html) from the PLS website
 
 ##Workflow
 ----------
@@ -27,7 +28,8 @@ This data can be used for either the 18S or 16S rRNA gene sequences. For this do
     *  Within the R scripts there are notes where you will need to edit things in excel or other appropriate method.
 ### Download the data
 1. Download the MSR data from [NCBI SRA](http://www.ncbi.nlm.nih.gov/sra)
-### Run Mothur
+
+###Run Mothur
 2. Create a .files file for *Mothur* analysis
 
     *  Example:
