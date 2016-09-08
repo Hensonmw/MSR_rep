@@ -2,7 +2,8 @@
 ======================================
 
 * Recreate workflow used to analyze the 16S and 18S rRNA gene survey of the Mississippi River
-* Data was collected during the Fall of 2013
+* Data was collected during the Fall of 2013 from Minneapolis, MN to the Gulf of Mexico
+
 
 ##Requirements
 --------------
@@ -14,14 +15,15 @@ In order to recreate the work you will need to install the following programs:
 * Your favorite text editor (We use [atom](https://atom.io/))
 * [Mothur](http://www.mothur.org/)
 
-    see Pat Schloss' SOP for MiSeq data (http://www.mothur.org/wiki/MiSeq_SOP)
-* [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/))
+    *  see Pat Schloss' SOP for MiSeq data (http://www.mothur.org/wiki/MiSeq_SOP)
+* [FastQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 * Access to HPC or high RAM computer
 
 ##Workflow
 ----------
 
 This data can be used for either the 18S or 16S rRNA gene sequences. For this documentation it is written out for the 16S rRNA gene data. Any changes that would be different for 18S rRNA gene data will be denoted in the text.
+    *  Within the R scripts there are notes where you will need to edit things in excel. 
 ### Download the data
 1. Download the MSR data from [NCBI SRA](http://www.ncbi.nlm.nih.gov/sra)
 ### Run Mothur
